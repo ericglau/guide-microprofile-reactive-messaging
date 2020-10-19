@@ -197,7 +197,7 @@ The [hotspot=reactiveMessaging file=0]`microprofile-reactive-messaging-api` depe
 
 Start your Docker environment. Dockerfiles are provided for you to use.
 
-To build the application, run the Maven `install` and `package` goals from the command line in the `start` directory:
+To build the application, run the Maven `install` and `package` goals from the command line in the `finish` directory:
 
 [role='command']
 ```
@@ -207,15 +207,7 @@ mvn package
 
 include::{common-includes}/ol-kernel-docker-pull.adoc[]
 
-Run the following commands to containerize the microservices:
-
-[role='command']
-```
-docker build -t system:1.0-SNAPSHOT system/.
-docker build -t inventory:1.0-SNAPSHOT inventory/.
-```
-
-Next, use the provided script to start the application in Docker containers. The script creates a network for the containers to communicate with each other. It also creates containers for Kafka, Zookeeper, and the microservices in the project. For simplicity, the script starts one instance of the system service.
+Next, use the provided script to start the application in Docker containers. The script creates a network for the containers to communicate with each other. It also creates containers for Kafka and Zookeeper.
 
 include::{common-includes}/os-tabs.adoc[]
 
@@ -234,6 +226,10 @@ include::{common-includes}/os-tabs.adoc[]
 .\scripts\startContainers.bat
 ```
 --
+
+Start dev mode for the system service: from `finish/system`, run `mvn liberty:devc`
+
+Start dev mode for the inventory service: from `finish/inventory`, run `mvn liberty:devc`
 
 == Testing the application
 

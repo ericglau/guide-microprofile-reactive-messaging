@@ -99,7 +99,11 @@
             <plugin>
                 <groupId>io.openliberty.tools</groupId>
                 <artifactId>liberty-maven-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>3.3-M4</version>
+                <configuration>
+                    <skipDefaultPorts>true</skipDefaultPorts>
+                    <dockerRunOpts>-e MP_MESSAGING_CONNECTOR_LIBERTY_KAFKA_BOOTSTRAP_SERVERS=kafka:9092 -p 9083:9083 --network=reactive-app --name=system</dockerRunOpts>
+                </configuration>
             </plugin>
 
             <!-- Plugin to run unit tests -->

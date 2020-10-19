@@ -1,5 +1,5 @@
 #!/bin/bash
 
-docker stop system inventory kafka zookeeper
+docker stop kafka zookeeper # system inventory 
 
 docker network rm reactive-app

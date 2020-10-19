@@ -1,3 +1,3 @@
-docker stop system inventory kafka zookeeper
+docker stop kafka zookeeper
 
 docker network rm reactive-app

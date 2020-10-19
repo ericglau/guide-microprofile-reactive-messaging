@@ -20,19 +20,3 @@ start /b docker run -d ^
   --name=kafka ^
   --rm ^
   bitnami/kafka:2 
-
-start /b docker run -d ^
-  -e MP_MESSAGING_CONNECTOR_LIBERTY_KAFKA_BOOTSTRAP_SERVERS=%KAFKA_SERVER% ^
-  -p 9083:9083 ^
-  --network=%NETWORK% ^
-  --name=system ^
-  --rm ^
-  system:1.0-SNAPSHOT
-
-start /b docker run -d ^
-  -e MP_MESSAGING_CONNECTOR_LIBERTY_KAFKA_BOOTSTRAP_SERVERS=%KAFKA_SERVER% ^
-  -p 9085:9085 ^
-  --network=%NETWORK% ^
-  --name=inventory ^
-  --rm ^
-  inventory:1.0-SNAPSHOT 
